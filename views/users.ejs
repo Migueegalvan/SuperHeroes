@@ -1,0 +1,23 @@
+<!-- views/users.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Usuarios</title>
+</head>
+<body>
+  <%- include('partials/header') %>
+  <main>
+    <h1>Lista de Usuarios</h1>
+    <ul>
+      <% users.forEach(user => { %>
+        <li>
+          <a href="/usuarios/<%= user.id %>">
+            <%= user.name %> (Edad: <%= user.age %>)
+          </a>
+        </li>
+      <% }) %>
+    </ul>
+  </main>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!-- views/products.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Productos</title>
+</head>
+<body>
+  <%- include('partials/header') %>
+  <main>
+    <h1>Lista de Productos</h1>
+    <ul>
+      <% products.forEach(product => { %>
+        <li><strong><%= product.name %></strong>: $<%= product.price %></li>
+      <% }) %>
+    </ul>
+  </main>
+</body>
+</html>

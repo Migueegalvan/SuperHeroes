@@ -1,0 +1,47 @@
+<!-- views/editSuperhero.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+</head>
+<body>
+  <%- include('partials/header') %>
+  <main>
+    <% if (error_messages.length > 0) { %>
+      <div class="flash error">
+        <ul>
+          <% error_messages.forEach(msg => { %>
+            <li><%= msg %></li>
+          <% }) %>
+        </ul>
+      </div>
+    <% } %>
+    <h2>Editar Superhéroe</h2>
+    <form action="/heroes/<%= heroe.id %>/editar?_method=PUT" method="POST">
+      <div>
+        <label for="nombreSuperheroe">Nombre del Superhéroe:</label>
+        <input type="text" id="nombreSuperheroe" name="nombreSuperheroe" value="<%= heroe.nombreSuperheroe %>" required>
+      </div>
+      <div>
+        <label for="nombreReal">Nombre Real:</label>
+        <input type="text" id="nombreReal" name="nombreReal" value="<%= heroe.nombreReal %>" required>
+      </div>
+      <div>
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" min="0" value="<%= heroe.edad %>" required>
+      </div>
+      <div>
+        <label for="planetaOrigen">Planeta de Origen:</label>
+        <input type="text" id="planetaOrigen" name="planetaOrigen" value="<%= heroe.planetaOrigen %>" required>
+      </div>
+      <div>
+        <label for="debilidad">Debilidad:</label>
+        <input type="text" id="debilidad" name="debilidad" value="<%= heroe.debilidad %>" required>
+      </div>
+      <button type="submit">Actualizar</button>
+    </form>
+  </main>
+  <%- include('partials/footer') %>
+</body>
+</html>
