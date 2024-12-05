@@ -302,3 +302,115 @@ main {
 #soundToggle:hover {
   background-color: rgba(0, 0, 0, 0.9);
 }
+
+/* Responsividad General */
+@media (max-width: 1200px) {
+  main {
+    max-width: 95%; /* Reduce el ancho máximo */
+    padding: 15px;
+  }
+  
+  .hero-section {
+    flex-wrap: wrap; /* Ajusta la disposición en pantallas pequeñas */
+    text-align: center;
+    padding: 30px 15px;
+  }
+
+  .hero-text {
+    max-width: 100%; /* Usa el 100% del ancho */
+    margin-bottom: 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem; /* Reduce el tamaño del título */
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .hero-images {
+    justify-content: center; /* Centra las imágenes */
+    gap: 10px;
+  }
+
+  .hero-sticker {
+    width: 60px;
+    height: 60px;
+  }
+
+  .features-section {
+    flex-direction: column; /* Coloca las tarjetas en una columna */
+    gap: 15px;
+  }
+
+  .feature-card {
+    max-width: 100%; /* Ajusta el ancho de las tarjetas */
+  }
+}
+
+/* Responsividad para Tablets */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column; /* Coloca los enlaces del navbar en columna */
+    gap: 10px;
+  }
+
+  .feature-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  a.button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  footer {
+    font-size: 12px;
+  }
+}
+
+/* Responsividad para Móviles */
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.5em; /* Reduce el tamaño de los encabezados */
+  }
+
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-sticker {
+    width: 50px;
+    height: 50px;
+  }
+
+  .feature-card {
+    padding: 15px;
+  }
+
+  .feature-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .feature-card p {
+    font-size: 0.9rem;
+  }
+
+  #soundToggle {
+    top: 15px;
+    right: 15px;
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  video {
+    object-fit: cover; /* Ajusta el video */
+  }
+}
