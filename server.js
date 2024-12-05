@@ -8,8 +8,9 @@ import blogRouter from './routes/blog.js';
 import usuariosRouter from './routes/usuarios.js';
 import superheroesRouter from './routes/superheroesRoutes.mjs';
 import loggerMiddleware from './middleware/loggerMiddleware.js';
-
+import expressLayouts from 'express-ejs-layouts';
 const app = express();
+const express = require('express');
 
 // Configurar EJS como motor de vistas
 app.set('view engine', 'ejs');
@@ -17,7 +18,9 @@ app.set('views', './views');
 
 // Middleware para manejar JSON y datos de formularios
 app.use(express.json());
+app.use(expressLayouts);
 app.use(express.urlencoded({ extended: true }));
+app.set('layout', 'layout');
 
 // Middleware para method-override
 app.use(methodOverride('_method'));
@@ -50,6 +53,7 @@ app.use(loggerMiddleware);
 app.use('/blogs', blogRouter);
 app.use('/usuarios', usuariosRouter);
 app.use('/heroes', superheroesRouter);
+app.use(express.static('public'));
 
 // Ruta de ejemplo para EJS
 app.get('/', (req, res) => {
@@ -64,6 +68,10 @@ app.get('/products', (req, res) => {
     { name: 'Tablet', price: 389 }
   ];
   res.render('products', { products, title: 'Productos' });
+});
+
+app.get('/contacto', (req, res) => {
+  res.render('contacto', { title: 'Contacto' });
 });
 
 // Iniciar el servidor

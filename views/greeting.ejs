@@ -1,14 +1,29 @@
-<!-- views/greeting.ejs -->
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Saludo</title>
-</head>
-<body>
-  <%- include('partials/header') %>
-  <main>
-    <h2>¡Hola, <%= name %>!</h2>
-  </main>
-</body>
-</html>
+<div class="hero-section">
+  <div class="hero-text">
+    <h1>¡Bienvenidos</h1>
+    <p>Descubre el mundo de los superhéroes, explora sus historias, habilidades y mucho más.</p>
+  </div>
+  <div class="hero-images">
+    <img src="/images/saitama.png" alt="Spider-Man" class="hero-sticker">
+    <img src="/images/deadpol.png" alt="Iron Man" class="hero-sticker">
+    <img src="/images/spiderman.png" alt="Thor" class="hero-sticker">
+  </div>
+</div>
+
+<section class="features-section">
+  <div class="feature-card">
+    <img src="/images/genar.png" alt="Lista de Héroes" class="feature-icon">
+    <h3>Explora Héroes</h3>
+    <p>Conoce la lista completa de superhéroes y sus características.</p>
+  </div>
+  <div class="feature-card">
+    <img src="/images/wolverine.png" alt="Agregar Héroe" class="feature-icon">
+    <h3>Agrega tu Héroe</h3>
+    <p>Crea y personaliza nuevos héroes para añadirlos al universo.</p>
+  </div>
+  <div class="feature-card">
+    <img src="/images/ichigo.png" alt="Contacto" class="feature-icon">
+    <h3>Contáctanos</h3>
+    <p>Comunícate con nosotros para más información o ayuda.</p>
+  </div>
+</section>

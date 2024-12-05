@@ -1,66 +1,39 @@
-<!-- views/dashboard.ejs -->
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title><%= title %></title>
-</head>
-<body>
-  <%- include('partials/header') %>
-  <main>
-    <% if (success_messages.length > 0) { %>
-      <div class="flash success">
-        <ul>
-          <% success_messages.forEach(msg => { %>
-            <li><%= msg %></li>
-          <% }) %>
-        </ul>
-      </div>
-    <% } %>
-    <% if (error_messages.length > 0) { %>
-      <div class="flash error">
-        <ul>
-          <% error_messages.forEach(msg => { %>
-            <li><%= msg %></li>
-          <% }) %>
-        </ul>
-      </div>
-    <% } %>
+<h2 class="hero-title">Lista de Superhéroes</h2>
 
-    <h2>Lista de Superhéroes</h2>
-    <a href="/heroes/agregar" class="button">Agregar Nuevo Superhéroe</a>
-    <table border="1" cellpadding="10">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nombre del Superhéroe</th>
-          <th>Nombre Real</th>
-          <th>Edad</th>
-          <th>Planeta de Origen</th>
-          <th>Debilidad</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% heroes.forEach(hero => { %>
-          <tr>
-            <td><%= hero.id %></td>
-            <td><%= hero.nombreSuperheroe %></td>
-            <td><%= hero.nombreReal %></td>
-            <td><%= hero.edad %></td>
-            <td><%= hero.planetaOrigen %></td>
-            <td><%= hero.debilidad %></td>
-            <td>
-              <a href="/heroes/<%= hero.id %>/editar" class="button">Editar</a>
-              <form action="/heroes/<%= hero.id %>?_method=DELETE" method="POST" style="display:inline;">
-                <button type="submit" onclick="return confirm('¿Estás seguro de eliminar este superhéroe?');">Eliminar</button>
-              </form>
-            </td>
-          </tr>
-        <% }) %>
-      </tbody>
-    </table>
-  </main>
-  <%- include('partials/footer') %>
-</body>
-</html>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre del Superhéroe</th>
+      <th>Nombre Real</th>
+      <th>Edad</th>
+      <th>Planeta de Origen</th>
+      <th>Debilidad</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% heroes.forEach(heroe => { %>
+      <tr>
+        <td><%= heroe.id %></td>
+        <td><%= heroe.nombreSuperheroe %></td>
+        <td><%= heroe.nombreReal %></td>
+        <td><%= heroe.edad %></td>
+        <td><%= heroe.planetaOrigen %></td>
+        <td><%= heroe.debilidad %></td>
+        <td>
+          <!-- Botón Editar -->
+          <a href="/heroes/<%= heroe.id %>/editar" class="btn-edit">Editar</a>
+        </td>
+        <td>
+          <!-- Botón Eliminar -->
+          <form action="/heroes/<%= heroe.id %>?_method=DELETE" method="POST" style="display: inline;">
+            <button type="submit" class="btn-delete">Eliminar</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+

@@ -1,12 +1,26 @@
 <!-- views/layout.ejs -->
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title><%= title %></title>
-  <link rel="stylesheet" href="/styles.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/dashboard.css">
+
+  </head>
+  
 <body>
+  <!-- Video de fondo -->
+  <div class="video-background">
+    <video autoplay loop /*muted /*playsinline*/ >
+      <source src="/videos/bankai.mp4" type="video/mp4">
+      Tu navegador no soporta la reproducción de videos.
+    </video>
+    <button id="soundToggle" onclick="toggleSound()">🔊 Activar Sonido</button>
+  </div>
+
   <%- include('partials/header') %>
   <main>
     <% if (success_messages.length > 0) { %>
@@ -30,5 +44,6 @@
     <%- body %>
   </main>
   <%- include('partials/footer') %>
+  <script src="/scripts.js"></script> <!-- Enlace al archivo JavaScript -->
 </body>
 </html>
