@@ -10,7 +10,7 @@ import superheroesRouter from './routes/superheroesRoutes.mjs';
 import loggerMiddleware from './middleware/loggerMiddleware.js';
 import expressLayouts from 'express-ejs-layouts';
 const app = express();
-const express = require('express');
+
 
 // Configurar EJS como motor de vistas
 app.set('view engine', 'ejs');
